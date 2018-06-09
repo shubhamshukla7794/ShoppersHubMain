@@ -21,19 +21,19 @@
 			<div class="col-md-4 col-sm-4 col-xs-12"></div>
 			<div class="col-md-4 col-sm-4 col-xs-12"> 
 				<!-- form start -->
-				<form role="form" action="<c:url value='j_spring_security_check' />" 
+				<form role="form" action="<c:url value='perform_login' />" 
 								  method="post" class="form-container">
 					<h2>LOGIN</h2>
 					<hr class="colorgraph"><br>
 					<div class="form-group">
-						<label for="uname">Username</label> 
-						<input type="text" class="form-control" name="j_username" 
-						       id="uname" placeholder="Username">
+						<label for="username">Username</label> 
+						<input type="text" class="form-control" name="username" 
+						       id="username" placeholder="Username">
 					</div>
 					<div class="form-group">
-						<label for="pass">Password</label>
-						<input type="password" class="form-control" name="j_password" 
-							   id="pass" placeholder="Password">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" name="password" 
+							   id="password" placeholder="Password">
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">Submit</button>
 				</form>
