@@ -19,9 +19,8 @@
 
 <security:http auto-config="true" use-expressions="true">
     
-	<security:form-login login-page="/login" default-target-url="/" 
-	 login-processing-url="/perform_login" authentication-failure-url="/login"
-	authentication-success-forward-url="/login_success" />
+	<security:form-login login-page="/login" default-target-url="/login_success" 
+	  authentication-failure-url="/login" />
 	
 	<security:logout logout-success-url="/login" logout-url="/perform_logout"/>
 	

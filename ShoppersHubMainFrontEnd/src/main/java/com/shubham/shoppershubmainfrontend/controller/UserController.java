@@ -33,7 +33,7 @@ public class UserController
 		return "Login";
 	}
 	
-	@RequestMapping(value="perform_login",method=RequestMethod.POST)
+	/*@RequestMapping(value="perform_login",method=RequestMethod.POST)
 	public String performLogin(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session, Model m)
 	{
 		user = userDAO.validate(username, password);
@@ -48,7 +48,7 @@ public class UserController
 		}
 		
 		return "Home";
-	}
+	}*/
 	
 	
 	@RequestMapping(value="login_success")

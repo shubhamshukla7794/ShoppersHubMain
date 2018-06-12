@@ -21,7 +21,7 @@
 			<div class="col-md-4 col-sm-4 col-xs-12"></div>
 			<div class="col-md-4 col-sm-4 col-xs-12"> 
 				<!-- form start -->
-				<form role="form" action="<c:url value='perform_login' />" 
+				<form role="form" action="<c:url value='login' />" 
 								  method="post" class="form-container">
 					<h2>LOGIN</h2>
 					<hr class="colorgraph"><br>

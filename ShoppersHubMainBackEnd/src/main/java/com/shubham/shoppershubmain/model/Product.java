@@ -21,7 +21,7 @@ public class Product
 	private String productName;
 	private int categoryId;
 	
-	private int supplierId;
+	//private int supplierId;
 	private int price;
 	private int stock;
 	private String prodDesc;
@@ -48,12 +48,12 @@ public class Product
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-	public int getSupplierId() {
+	/*public int getSupplierId() {
 		return supplierId;
 	}
 	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
-	}
+	}*/
 	public int getPrice() {
 		return price;
 	}
