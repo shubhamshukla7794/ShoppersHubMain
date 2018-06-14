@@ -28,16 +28,16 @@
 
 		<ul class="nav navbar-nav">
 			<c:if test="${!sessionScope.loggedIn}">
+			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login">LOGIN</a></li>
 				<li><a href="register">REGISTER</a></li>
+			</ul>
 			</c:if>
 			<c:if test="${sessionScope.loggedIn}">
 				<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
-					<li><a href="#">Home</a></li>
 					<li><a href="product">MANAGE PRODUCT</a></li>
 				</c:if>
 				<c:if test="${sessionScope.role=='ROLE_USER'}">
-					<li><a href="#">Home</a></li>
 					<li><a href="<c:url value="/productPage"/>">Products</a></li>
 				</c:if>
 			</c:if>
@@ -46,18 +46,8 @@
 		<!-- <div class="nav nav-bar navbar-right"> -->
 			<c:if test="${sessionScope.loggedIn}">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Welcome ${sessionScope.username} 
-					<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-					<c:if test="${sessionScope.role=='ROLE_USER'}">
-						<li><a href="#">Orders</a></li>
-					</c:if>
-                    	<li><a href="#">Change Info</a></li>
-                		<li class="divider"></li>
-                 		<li><a href="perform_logout">LOGOUT</a></li>
-                    </ul>
-                </li>
+				<li><a href="#">Welcome ${sessionScope.username}</a></li>
+				<li><a href="perform_logout">LOGOUT</a></li>
                 <c:if test="${sessionScope.role=='ROLE_USER'}">
                 	<a href="#" class="btn btn-primary navbar-btn" style="margin-right:10px">
 					<i class="fas fa-shopping-cart"></i>&nbsp;${CartItems}&nbsp;&nbsp;CART</a>

@@ -81,14 +81,7 @@ public class UserController
 				if(role.getAuthority().equals("ROLE_USER"))
 				{
 					loggedIn = true;
-					page="UserHomePage";
-					session.setAttribute("loggedIn", loggedIn);
-					session.setAttribute("username", username);
-				}
-				else
-				{
-					loggedIn = true;
-					page="SupplierHomePage";
+					page="Home";
 					session.setAttribute("loggedIn", loggedIn);
 					session.setAttribute("username", username);
 				}

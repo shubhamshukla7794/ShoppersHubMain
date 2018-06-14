@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-
+.nav li dropdown { position: absolute; z-index:9999}
 
 
 
