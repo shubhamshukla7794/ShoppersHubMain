@@ -21,7 +21,7 @@
 	<div class="container" align="center">
     	<a href="manage_categories" class="btn btn-lg btn-primary">
     		<i class="fas fa-box"></i>    Manage Categories</a>
-    	<a href="#" class="btn btn-lg btn-primary">
+    	<a href="manage_products" class="btn btn-lg btn-primary">
     		<i class="fas fa-boxes"></i>    Manage Products</a>
   	</div>  
 
@@ -37,3 +37,4 @@
 
 </body>
 </html>
+<%@include file="Footer.jsp" %>

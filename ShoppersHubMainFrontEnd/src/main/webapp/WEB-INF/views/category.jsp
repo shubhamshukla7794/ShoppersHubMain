@@ -53,7 +53,7 @@
 			<th>ID</th>
 			<th>Name</th>
 			<th>Description</th>
-			<th class="text-center">Action</th>
+			<th>Action</th>
 		</tr>
 	  </thead>	
 			
@@ -62,7 +62,7 @@
 		  <c:forEach var="category" items="${listCategories}">
 			<tr>
 				<td>${category.categoryId}</td>
-				<td>${category.categoryName}</td>
+				<td style="width:30%">${category.categoryName}</td>
 				<td>${category.cateogryDesc}</td>
 				<td> 
 				<a href="<c:url value="category/edit/?categoryId=${category.categoryId}"/>" class="btn btn-sm btn-info">

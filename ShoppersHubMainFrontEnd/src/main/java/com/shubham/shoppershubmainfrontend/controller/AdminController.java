@@ -1,5 +1,6 @@
 package com.shubham.shoppershubmainfrontend.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,12 +37,29 @@ public class AdminController
 	@RequestMapping(value= "/manage_products")
 	public String manageProducts(Model m)
 	{
+		Product product=new Product();
+		m.addAttribute("product",product);
 		
 		m.addAttribute("isAdminClickedManageProducts", true);
-		List<Category> listCategories = categoryDAO.getCategories();
-		m.addAttribute("listCategories", listCategories);
-		List<Product> products = productDAO.listProducts();
-		m.addAttribute("products", products);
+		
+		List<Product> listProducts = productDAO.listProducts();
+		m.addAttribute("listProducts", listProducts);
+		
+		m.addAttribute("categoryList", this.getAllCategories());
 		return "AdminHomePage";
+	}
+	
+	public LinkedHashMap<Integer,String> getAllCategories()
+	{
+		List<Category> listCategories=categoryDAO.getCategories();
+		
+		LinkedHashMap<Integer,String> categoryList=new LinkedHashMap<Integer,String>();
+		
+		for(Category category:listCategories)
+		{
+			categoryList.put(category.getCategoryId(), category.getCategoryName());
+		}
+		
+		return categoryList;
 	}
 }

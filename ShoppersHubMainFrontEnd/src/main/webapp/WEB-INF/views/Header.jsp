@@ -23,7 +23,17 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top"	style="background-color: #041633;">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="http://localhost:8080/ShoppersHubMainFrontEnd/"></a>
+			<c:if test="${sessionScope.loggedIn}">
+				<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
+					<a class="navbar-brand" href="login_success"></a>
+				</c:if>
+				<c:if test="${sessionScope.role=='ROLE_USER'}">
+					<a class="navbar-brand" href="http://localhost:8080/ShoppersHubMainFrontEnd/"></a>
+				</c:if>
+			</c:if>
+			<c:if test="${!sessionScope.loggedIn}">
+				<a class="navbar-brand" href="http://localhost:8080/ShoppersHubMainFrontEnd/"></a>
+			</c:if>
 		</div>
 
 		<ul class="nav navbar-nav">
@@ -34,11 +44,11 @@
 			</ul>
 			</c:if>
 			<c:if test="${sessionScope.loggedIn}">
-				<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
-					<li><a href="product">MANAGE PRODUCT</a></li>
-				</c:if>
+				<%-- <c:if test="${sessionScope.role=='ROLE_ADMIN'}">
+					<li><a href="login_success">Admin Home</a></li>
+				</c:if> --%>
 				<c:if test="${sessionScope.role=='ROLE_USER'}">
-					<li><a href="<c:url value="/productPage"/>">Products</a></li>
+					<li><a href="<c:url value="/products"/>">Products</a></li>
 				</c:if>
 			</c:if>
 		</ul>
