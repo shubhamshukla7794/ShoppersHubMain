@@ -59,7 +59,7 @@
 				<li><a href="#">Welcome ${sessionScope.username}</a></li>
 				<li><a href="perform_logout">LOGOUT</a></li>
                 <c:if test="${sessionScope.role=='ROLE_USER'}">
-                	<a href="#" class="btn btn-primary navbar-btn" style="margin-right:10px">
+                	<a href="myCart" class="btn btn-primary navbar-btn" style="margin-right:10px">
 					<i class="fas fa-shopping-cart"></i>&nbsp;${CartItems}&nbsp;&nbsp;CART</a>
 				</c:if>
 				</ul>

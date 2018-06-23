@@ -9,16 +9,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Order 
+public class Orders 
 {
 	@Id
 	@GeneratedValue
-	int orderId;
+	private int orderId;
 	
-	int purchaseValue;
-	Date orderDate;
-	String username;
-	String paymentMode;
+	private int purchaseValue;
+	private Date orderDate;
+	private String username;
+	private String paymentMode;
 	
 	public int getOrderId() {
 		return orderId;

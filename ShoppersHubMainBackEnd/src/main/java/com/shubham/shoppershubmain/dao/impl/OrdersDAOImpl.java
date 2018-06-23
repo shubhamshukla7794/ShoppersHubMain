@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.shubham.shoppershubmain.dao.OrderDAO;
-import com.shubham.shoppershubmain.model.Order;
+import com.shubham.shoppershubmain.dao.OrdersDAO;
+import com.shubham.shoppershubmain.model.Orders;
 
 @Repository("orderDAO")
 @Transactional
-public class OrderDAOImpl implements OrderDAO
+public class OrdersDAOImpl implements OrdersDAO
 {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public boolean receiptGenerate(Order order) 
+	public boolean receiptGenerate(Orders order) 
 	{
 		try
 		{
@@ -34,7 +34,7 @@ public class OrderDAOImpl implements OrderDAO
 	public boolean updateCartItemStatus(String username) 
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("update CartItem set status='P' where username=:username");
+		Query query=session.createQuery("update Cart set status='P' where username=:username");
 		query.setParameter("username", username);
 		int row_eff=query.executeUpdate();
 		return row_eff>0;

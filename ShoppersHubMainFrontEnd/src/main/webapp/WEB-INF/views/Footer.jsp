@@ -27,7 +27,7 @@
         	<div class="col-md-4">
             	<img alt="logo" src="resources/images/shoppershublogo.png" width="230">
                 <p>The ShoppersHub Project created during the course in NIIT</p>
-                <p>© 2018, All rights reserved</p>
+                <p><i class="far fa-copyright"></i>&nbsp;2018, All rights reserved</p>
             </div>
         	<div class="col-md-4">
             	<h5>Training Center:</h5>
@@ -42,8 +42,8 @@
             	<h5>Contact:</h5>
             	<div class="col-md-6">
                     <p>SHUBHAM KUMAR SHUKLA</p>
-                    <p>Email: shubhamshukla7794@gmail.com</p>
-                    <p>GitHub: https://github.com/shubhamshukla7794</p>
+                    <p><i class="fas fa-envelope"></i>&nbsp;Email: shubhamshukla7794@gmail.com</p>
+                    <p><i class="fab fa-github"></i>&nbsp;GitHub: https://github.com/shubhamshukla7794</p>
                 </div>
             </div>
 

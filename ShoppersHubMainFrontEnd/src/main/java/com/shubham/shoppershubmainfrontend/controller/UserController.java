@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,12 @@ public class UserController
 	public String loginPage()
 	{
 		return "Login";
+	}
+	
+	@RequestMapping(value="/register")
+	public String registerPage()
+	{
+		return "Register";
 	}
 	
 	/*@RequestMapping(value="perform_login",method=RequestMethod.POST)
@@ -90,6 +97,36 @@ public class UserController
 		
 		return page;
 	}
+	
+	@PostMapping("RegisterUser")
+	public String registerUser(@RequestParam String username,
+							   @RequestParam String password,
+							   @RequestParam String customerName,
+							   @RequestParam String mobileNo,
+							   @RequestParam String emailId,
+							   @RequestParam String address,
+							   Model m)
+	{
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setCustomerName(customerName);
+		user.setMobileNo(mobileNo);
+		user.setEmailId(emailId);
+		user.setAddress(address);
+		user.setRole("ROLE_USER");
+		
+		if(userDAO.save(user))
+		{
+			m.addAttribute("msg", "You Registered Successfully. Please Login to continue.");
+			return "Login";
+		}
+		else
+		{
+			m.addAttribute("msg", "Registration Failed!!!");
+			return "Register";
+		}	
+	}
+	
 }
 
 

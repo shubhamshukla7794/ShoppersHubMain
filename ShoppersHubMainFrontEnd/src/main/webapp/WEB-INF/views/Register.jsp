@@ -12,7 +12,7 @@
 		  rel="stylesheet" id="bootstrap-css">
 	<script	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link rel="stylesheet" type="text/css"	href="resources/css/LoginFormStyle.css">
+	<link rel="stylesheet" type="text/css"	href="resources/css/RegisterFormStyle.css">
 </head>
 
 <body>
@@ -20,26 +20,45 @@
 		 <div class="row">
 			<div class="col-md-4 col-sm-4 col-xs-12"></div>
 			<div class="col-md-4 col-sm-4 col-xs-12"> 
-			<br><br><br>
-			<c:if test="${msg!=null}">
-				<div class="alert alert-success">
+				<br><br><br>
+				<c:if test="${msg!=null}">
+				<div class="alert alert-danger">
     				${msg}
   				</div>
-  			</c:if>
+  				</c:if>
 				<!-- form start -->
-				<form role="form" action="<c:url value='login' />" 
-								  method="post" class="form-container">
-					<h2>LOGIN</h2>
+				<form role="form" action="<c:url value='RegisterUser' />" method="post" class="form-container">
+					<h2>REGISTER</h2>
 					<hr class="colorgraph"><br>
 					<div class="form-group">
 						<label for="username">Username</label> 
 						<input type="text" class="form-control" name="username" 
-						       id="username" placeholder="Username">
+						       id="username" placeholder="Username" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label>
 						<input type="password" class="form-control" name="password" 
-							   id="password" placeholder="Password">
+							   id="password" placeholder="Password" required>
+					</div>
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control" name="customerName" 
+							   id="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<label for="mob">Mobile Number</label>
+						<input type="text" class="form-control" name="mobileNo" 
+							   id="mob" placeholder="Mobile Number" required>
+					</div>
+					<div class="form-group">
+						<label for="email">Email ID</label>
+						<input type="text" class="form-control" name="emailId" 
+							   id="email" placeholder="Email ID" required>
+					</div>
+					<div class="form-group">
+						<label for="addr">Address</label>
+						<input type="text" class="form-control" name="address" 
+							   id="addr" placeholder="Address" required>
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">Submit</button>
 				</form>

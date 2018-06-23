@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO
 		{
 			user.setEnabled(true);
 			user.setAdded_date(new Date(System.currentTimeMillis()));
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			sessionFactory.getCurrentSession().save(user);
 		}
 		catch(Exception e)
 		{

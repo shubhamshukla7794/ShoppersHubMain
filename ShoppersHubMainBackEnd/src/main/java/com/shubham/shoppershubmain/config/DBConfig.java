@@ -50,7 +50,7 @@ public class DBConfig
 		factoryBuilder.addAnnotatedClass(Product.class);
 		factoryBuilder.addAnnotatedClass(User.class);
 		factoryBuilder.addAnnotatedClass(Cart.class);
-		factoryBuilder.addAnnotatedClass(Order.class);
+		factoryBuilder.addAnnotatedClass(Orders.class);
 		
 		factoryBuilder.addProperties(hibernateProp);
 		
@@ -87,10 +87,10 @@ public class DBConfig
 	}
 	
 	@Bean(name="orderDAO")
-	public OrderDAO getOrderDAO()
+	public OrdersDAO getOrderDAO()
 	{
 		System.out.println("---- Order DAO Implementation ----");
-		return new OrderDAOImpl();
+		return new OrdersDAOImpl();
 	}
 	
 	@Bean(name="txManager")

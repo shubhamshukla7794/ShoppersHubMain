@@ -22,10 +22,10 @@ public class Cart
 	int price;
 	String status;
 	
-	public int getCartItemId() {
+	public int getCartId() {
 		return cartId;
 	}
-	public void setCartItemId(int cartId) {
+	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
 	public int getProductId() {
