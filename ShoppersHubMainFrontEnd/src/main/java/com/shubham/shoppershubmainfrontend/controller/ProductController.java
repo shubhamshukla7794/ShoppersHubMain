@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.shubham.shoppershubmain.dao.ProductDAO;
 import com.shubham.shoppershubmain.dao.CategoryDAO;
+import com.shubham.shoppershubmain.model.Category;
 /*import com.shubham.shoppershubmain.model.Category;*/
 import com.shubham.shoppershubmain.model.Product;
 
@@ -30,6 +33,9 @@ public class ProductController
 	
 	@Autowired
 	CategoryDAO categoryDAO;
+	
+	@Autowired
+	HttpSession httpsession;
 	
 	@RequestMapping(value="/product/save",method= RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product")Product product,Model m,@RequestParam(value="pimage")MultipartFile pImage)
@@ -100,6 +106,45 @@ public class ProductController
 		m.addAttribute("categoryName",categoryName);
 		return "ProdDesc";
 	}*/
+	
+	@RequestMapping(value="/product/edit/{productId}",method=RequestMethod.GET)
+	public String editProduct(@PathVariable("productId")int productId,Model m)
+	{
+		Product product=productDAO.getProduct(productId);
+		httpsession.setAttribute("selectedProduct",product);
+		
+		return "redirect:/manage_products";
+	}
+	
+	@RequestMapping(value="/product/delete/{productId}",method=RequestMethod.GET)
+	public String deleteProduct(@PathVariable("productId")int productId,Model m)
+	{
+		Product product=productDAO.getProduct(productId);
+		if(productDAO.deleteProduct(product))
+		{
+			m.addAttribute("msg", "Product deleted Successfully");
+		}
+		else
+		{
+			m.addAttribute("msg", "Could not delete product");
+		}
+		return "redirect:/manage_products";
+	}
+	
+	public LinkedHashMap<Integer,String> getAllCategories()
+	{
+		List<Category> listCategories=categoryDAO.getCategories();
+		
+		LinkedHashMap<Integer,String> categoryList=new LinkedHashMap<Integer,String>();
+		
+		for(Category category:listCategories)
+		{
+			categoryList.put(category.getCategoryId(), category.getCategoryName());
+		}
+		
+		return categoryList;
+	}
+	
 }
 
 

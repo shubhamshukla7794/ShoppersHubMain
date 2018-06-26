@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shubham.shoppershubmain.dao.CartDAO;
 import com.shubham.shoppershubmain.dao.OrdersDAO;
+import com.shubham.shoppershubmain.dao.UserDAO;
 import com.shubham.shoppershubmain.model.Cart;
 import com.shubham.shoppershubmain.model.Orders;
+import com.shubham.shoppershubmain.model.User;
 
 @Controller
 public class PaymentController 
@@ -23,6 +25,10 @@ public class PaymentController
 	
 	@Autowired
 	OrdersDAO ordersDAO;
+	
+	@Autowired
+	UserDAO userDAO;
+
 	
 	@RequestMapping(value="confirmOrder")
 	public String showConfirmedOrder(HttpSession httpsession, Model m)
@@ -36,13 +42,15 @@ public class PaymentController
 		return "ConfirmOrder";
 	}
 	
-	@RequestMapping(value="paymentConfirmation")
+	/*@RequestMapping(value="paymentConfirmation")
 	public String confirmPayment(@RequestParam("mode")String paymentMode,HttpSession httpsession, Model m)
 	{
 		String username = (String) httpsession.getAttribute("username");
+		User user = userDAO.getUser(username);
 		List<Cart> listCartItems = cartDAO.listCartItems(username);
 		m.addAttribute("listCartItems", listCartItems);
 		m.addAttribute("totalCost", this.calculateTotalCost(listCartItems));
+		m.addAttribute("user", user);
 		httpsession.setAttribute("CartItems",0);
 		
 		if(ordersDAO.updateCartItemStatus(username))
@@ -51,6 +59,35 @@ public class PaymentController
 			
 			order.setPurchaseValue(this.calculateTotalCost(listCartItems));
 			order.setPaymentMode(paymentMode);
+			order.setUsername(username);
+			order.setOrderDate(new java.util.Date());
+			ordersDAO.receiptGenerate(order);
+			
+			httpsession.setAttribute("orderId", order.getOrderId());
+			httpsession.setAttribute("orderdate", order.getOrderDate());
+			
+		}
+		
+		return "Receipt";
+	}*/
+	
+	@RequestMapping(value="paymentConfirmation")
+	public String confirmPayment(HttpSession httpsession, Model m)
+	{
+		String username = (String) httpsession.getAttribute("username");
+		User user = userDAO.getUser(username);
+		List<Cart> listCartItems = cartDAO.listCartItems(username);
+		m.addAttribute("listCartItems", listCartItems);
+		m.addAttribute("totalCost", this.calculateTotalCost(listCartItems));
+		m.addAttribute("user", user);
+		httpsession.setAttribute("CartItems",0);
+		
+		if(ordersDAO.updateCartItemStatus(username))
+		{
+			Orders order = new Orders();
+			
+			order.setPurchaseValue(this.calculateTotalCost(listCartItems));
+			order.setPaymentMode("Cash");
 			order.setUsername(username);
 			order.setOrderDate(new java.util.Date());
 			ordersDAO.receiptGenerate(order);

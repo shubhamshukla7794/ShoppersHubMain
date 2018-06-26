@@ -3,7 +3,11 @@ package com.shubham.shoppershubmain.model;
 import java.sql.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,15 +16,28 @@ import org.springframework.stereotype.Component;
 public class User 
 {
 	@Id
+	@Pattern(regexp = "^[a-zA-Z0-9_-]{3,20}$")
 	private String username;
+	
+	@NotEmpty(message = "Please enter your password.")
+    @Size(min = 6, max = 15, message = "Your password must between 6 and 15 characters")
 	private String password;
+	
 	private String role; //admin|user
 	private boolean enabled; //true|false
 
+	@Pattern(regexp = "^[a-zA-Z ]{3,50}$")
 	private String customerName;
+	
+	@Pattern(regexp = "^(\\+\\d{1,2}[- ]?)?\\d{10}$")
 	private String mobileNo;
+	
+    @NotEmpty @Email
 	private String emailId;
+    
+    @Pattern(regexp = "^[a-zA-Z0-9-,() ]{3,250}$")
 	private String address;
+    
 	private Date added_date;
 	
 	public String getUsername() {

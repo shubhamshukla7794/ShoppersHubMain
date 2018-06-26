@@ -6,7 +6,7 @@
 <div class="container">
 
 <table align="center" class="table table-striped table-bordered" >
-	<tr><td colspan='6'> <center>Your Cart</center></td></tr>
+	<tr><td colspan='6' style="text-align:center;"> <strong>ORDER SUMMARY</strong></td></tr>
 	<tr>
 		<td><strong>Product Name</strong></td>
 		<td><strong>Price</strong></td>
@@ -34,15 +34,18 @@
 	
 </table>
 
-<form action="paymentConfirmation" method="post">
+<%-- <form action="paymentConfirmation" method="post">
 <table align="center" width="100%">
 	<tr><td colspan="2"></td><td><strong>Payment Details</strong></td></tr>
 	<tr><td colspan="3"><input type="radio" name="mode" value="Cash">Cash</td>
 	<td colspan="3"><input type="radio" name="mode" value="Card">Credit Card</td></tr>
 	<tr><td colspan="2"><center><input type="submit" value="Proceed to Pay" class="btn btn-info btn-block"></center></td></tr>
 </table>
-</form>
+</form> --%>
 
+				<div class="col-sm-12 col-md-6 text-right">
+                    <a href="<c:url value="/paymentConfirmation"/>" class="btn btn-lg btn-block btn-success text-uppercase">Place Order</a>
+                </div>
 
 </div>
 

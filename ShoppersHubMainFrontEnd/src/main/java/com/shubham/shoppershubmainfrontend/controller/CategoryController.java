@@ -1,5 +1,7 @@
 package com.shubham.shoppershubmainfrontend.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,8 @@ public class CategoryController
 	@Autowired
 	CategoryDAO categoryDAO;
 	
+	@Autowired
+	private HttpSession httpsession;
 
 	
 	@RequestMapping(value = "/category/save", method = RequestMethod.POST)
@@ -43,7 +47,8 @@ public class CategoryController
 	public String editCategory(@RequestParam int categoryId, Model m)
 	{
 		Category category = categoryDAO.getCategory(categoryId);
-		m.addAttribute("selectedCategory", category);		
+		httpsession.setAttribute("selectedCategory", category);
+		//m.addAttribute("selectedCategory", category);		
 		return "redirect:/manage_categories";
 	}
 	

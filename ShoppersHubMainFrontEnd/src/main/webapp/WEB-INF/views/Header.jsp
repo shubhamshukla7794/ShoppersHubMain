@@ -23,6 +23,11 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top"	style="background-color: #041633;">
 	<div class="container-fluid">
 		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
 			<c:if test="${sessionScope.loggedIn}">
 				<c:if test="${sessionScope.role=='ROLE_ADMIN'}">
 					<a class="navbar-brand" href="login_success"></a>
@@ -36,6 +41,8 @@
 			</c:if>
 		</div>
 
+
+	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
 			<c:if test="${!sessionScope.loggedIn}">
 			<ul class="nav navbar-nav navbar-right">
@@ -65,6 +72,7 @@
 				</ul>
 			</c:if>
 		<!-- </div> -->
+	</div>
 	</div>
 	</nav>
 </body>

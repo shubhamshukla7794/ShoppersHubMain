@@ -12,7 +12,7 @@
 			<label for="pname">Product Name</label>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fas fa-box-open" aria-hidden="true"></i></span>
-			<form:input path="productName" id="pname" cssClass="form-control"/>
+			<form:input path="productName" id="pname" cssClass="form-control" value = "${selectedProduct.productName}"/>
 			</div>
 		</div>
 	</div>
@@ -22,7 +22,7 @@
 			<label for="pdesc">Product Desc</label>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fas fa-clipboard" aria-hidden="true"></i></span>
-			<form:input path="prodDesc" id="pdesc" cssClass="form-control"/>
+			<form:input path="prodDesc" id="pdesc" cssClass="form-control" value = "${selectedProduct.prodDesc}"/>
 			</div>
 		</div>	
 	</div>	
@@ -32,7 +32,7 @@
 			<label for="pprice">Product Price</label>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fas fa-rupee-sign" aria-hidden="true"></i></span>
-			<form:input path="price" id="pprice" cssClass="form-control"/>
+			<form:input path="price" id="pprice" cssClass="form-control" value = "${selectedProduct.price}"/>
 			</div>
 		</div>	
 	</div>
@@ -42,7 +42,7 @@
 			<label for="pstock">Product Stock</label>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fas fa-dolly" aria-hidden="true"></i></span>
-			<form:input path="stock" id="pstock" cssClass="form-control"/>
+			<form:input path="stock" id="pstock" cssClass="form-control" value = "${selectedProduct.stock}"/>
 			</div>
 		</div>	
 	</div>
@@ -65,7 +65,7 @@
 			<label for="pimg">Product Image</label>
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fas fa-image" aria-hidden="true"></i></span>
-			<form:input type="file" path="pimage" id="pimg" cssClass="form-control"/>
+			<form:input type="file" path="pimage" id="pimg" cssClass="form-control" value = "${selectedProduct.pimage}"/>
 			</div>
 		</div>
 	</div>
@@ -110,9 +110,9 @@
 			<td>${product.categoryId}</td>
 			<td><img src="<c:url value="/resources/images/${product.productId}.jpg"/>" width="50" height="50"/></td>
 			<td>
-			<a href="#" class="btn btn-sm btn-info">
+			<a href="product/edit/${product.productId}" class="btn btn-sm btn-info">
 				<i class="fas fa-edit"></i> Edit</a>
-			<a href="#" class="btn btn-sm btn-danger">
+			<a href="product/delete/${product.productId}" class="btn btn-sm btn-danger">
 				<i class="fas fa-trash"></i> Delete</a>
 			</td>
 		  </tr>

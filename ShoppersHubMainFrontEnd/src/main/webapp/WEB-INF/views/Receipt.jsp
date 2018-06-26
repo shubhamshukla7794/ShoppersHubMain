@@ -16,20 +16,20 @@
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <address>
-                        <strong>ShoppersHub</strong>
+                        <strong>${user.customerName}</strong>
                         <br>
-                        Your one-stop destination
+                        ${user.address}
                         <br>
-                        Made by:- SHUBHAM KUMAR SHUKLA
+                        ${user.mobileNo}
                         <br>
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                     <p>
-                        <em>Date: ${sessionScope.orderdate}</em>
+                        <em><strong>Date:</strong> ${sessionScope.orderdate}</em>
                     </p>
                     <p>
-                        <em>Order ID: ORD00000${sessionScope.orderId}</em>
+                        <em><strong>Order ID:</strong> ORD00000${sessionScope.orderId}</em>
                     </p>
                 </div>
             </div>
@@ -66,6 +66,16 @@
                     </tbody>
                 </table>
                 
+                <br><br>
+                <div class="text-center">
+                	<h3><strong>shoppershub.com</strong> Your one-stop destination.</h3>
+                </div>
             </div>
         </div>
+        
+        <div class="col-sm-12 col-md-6">
+        	<a href="<c:url value="/products"/>" class="btn btn-lg btn-block btn-info text-uppercase">Continue Shopping</a>
+        </div>
+        
     </div>
+ </div>

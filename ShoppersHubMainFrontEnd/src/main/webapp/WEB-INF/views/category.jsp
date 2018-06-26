@@ -35,6 +35,17 @@
 		</div>
 		</div>
 		
+		<div class="col-md-6 form-line">
+		<div class="form-group">
+			<label for="cid">Category ID</label>
+			<div class="input-group">
+			<span class="input-group-addon"><i class="fas fa-box" aria-hidden="true"></i></span>
+			<input type="text" class="form-control" name="categoryId" placeholder="Category id" 
+				   id="cid" value= "${selectedCategory.categoryId}" disabled="disabled">
+			</div>
+		</div>
+		</div>
+		
 		<div align="center">
 			<button type="submit" class="btn btn-success">Submit</button>
 			<button type="reset" class="btn btn-warning">Reset</button>
