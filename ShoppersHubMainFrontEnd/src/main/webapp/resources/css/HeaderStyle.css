@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+.navbar-brand{ 
+  background: url("../images/shoppershublogo.png") center / contain no-repeat;
+   width: 250px; 
+} 
+
+.nav li a {
+  font-family: arial;
+  font-weight: bold;
+}
+
+.nav li dropdown { position: absolute; z-index:9999}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
